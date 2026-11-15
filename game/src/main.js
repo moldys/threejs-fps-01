@@ -460,6 +460,12 @@ function presentHud() {
     interactHint,
     bloom01: Math.min(1, w.bloom / bloomMax),
   });
+  // Keep the end-of-round panel in sync with the match state.
+  if (g.phase === 'end') {
+    hud.setText('end-wins', String(g.wins));
+    hud.setText('end-losses', String(g.losses));
+    hud.setText('end-money', '$' + String(g.money));
+  }
 }
 
 // ---- Resize ---------------------------------------------------------------------
